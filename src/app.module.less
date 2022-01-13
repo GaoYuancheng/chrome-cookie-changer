@@ -1,0 +1,30 @@
+.app {
+  width: 400px;
+  height: 300px;
+  .urlFormItem {
+    display: flex;
+    width: 100%;
+    .autoComplete {
+      flex: 1;
+      width: 100%;
+    }
+
+    .useCurButton {
+      margin-left: 8px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .urlActionBtn,
+  .domainActionBtn {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    button + button {
+      margin-left: 8px;
+    }
+  }
+  .domainActionBtn {
+    text-align: right;
+  }
+}
