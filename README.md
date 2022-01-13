@@ -17,7 +17,7 @@ chrome插件开发文档
 
 ### 注意  
 1. 开发时直接拖入 dist 到chrome插件中
-2. 修改之后 manifest.json 之后要在 chrome://extensions/ 刷新插件
+2. 修改之后 manifest.json 之后要在 [chrome://extensions/](chrome://extensions/) 刷新插件
 
 
 ### TODO
