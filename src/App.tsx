@@ -10,7 +10,12 @@ import {
   Menu,
 } from "antd";
 
-import { urlList, DEFAULT_VALUE, queriesForAdd } from "./constant";
+import {
+  URL_LIST,
+  DEFAULT_URL_VALUE,
+  QUERY_LIST,
+  LOCAL_COOKIE_KEYS,
+} from "./constant";
 import { formatCookieToString, copyToClipboard } from "./utils";
 
 // antd-styles
@@ -35,7 +40,7 @@ const getCurrentTab = async () => {
 const DOMAIN_LOCAL_KEY = "TARGET_DOMAIN"; // 存储在 storage 的 key
 
 const App: React.FC = () => {
-  const [urlValue, setUrlValue] = useState(DEFAULT_VALUE);
+  const [urlValue, setUrlValue] = useState(DEFAULT_URL_VALUE);
   const [domainValue, setDomainValue] = useState("");
 
   // 复制cookie数组
@@ -64,16 +69,15 @@ const App: React.FC = () => {
         message.error(err);
       });
 
-    cookies.some((item: any) => {
+    cookies.forEach((item: any) => {
       const { name, value } = item;
-      if (name === "SSO_USER_TOKEN") {
+      if (LOCAL_COOKIE_KEYS.includes(name)) {
         chrome.cookies.set({
           url: "http://localhost",
           name,
           value,
         });
       }
-      return name === "SSO_USER_TOKEN";
     });
     message.success("设置成功");
   };
@@ -159,7 +163,7 @@ const App: React.FC = () => {
               option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
             }
           >
-            {urlList.map((item) => (
+            {URL_LIST.map((item) => (
               <Select.Option key={item.value} value={item.value}>
                 {item.label}
               </Select.Option>
@@ -199,7 +203,7 @@ const App: React.FC = () => {
             <Dropdown
               overlay={
                 <Menu>
-                  {queriesForAdd.map((query) => (
+                  {QUERY_LIST.map((query) => (
                     <Menu.Item key={query}>
                       <a onClick={() => addQuery(query)}>{query}</a>
                     </Menu.Item>

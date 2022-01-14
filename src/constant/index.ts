@@ -1,14 +1,20 @@
-export const DEFAULT_VALUE = "https://www.zhihu.com/"; // 默认的地址
+// 默认的地址
+export const DEFAULT_URL_VALUE = "https://www.zhihu.com/";
 
-export const urlList = [
+// 各种环境的域名
+export const URL_LIST = [
   {
     value: "https//www.baidu.com/",
-    label: "百度",
+    label: "开发",
   },
   {
     value: "https://www.zhihu.com/",
-    label: "知乎",
+    label: "预发",
   },
 ];
 
-export const queriesForAdd = ["showFolders=true"];
+// 地址栏的query
+export const QUERY_LIST = ["showFolders=true"];
+
+// 需要复制到本地的cookieKey
+export const LOCAL_COOKIE_KEYS = ["USER_SSO_TOKEN"];

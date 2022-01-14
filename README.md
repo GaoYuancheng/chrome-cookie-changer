@@ -10,10 +10,13 @@ chrome插件开发文档
 
 > https://developer.chrome.com/docs/extensions/reference/
 
-### 开发
+### 开发/使用
 1. yarn
 2. yarn build:watch 并且把dist文件夹作为一个插件拖入chrome中
 3. 根据公司对应域名修改 constant/index.ts 的内容
+
+### 打包成zip
+yarn build:zip
 
 ### 注意  
 1. 开发时直接拖入 dist 到chrome插件中
